@@ -20,8 +20,6 @@ public class CustomSecurityManager extends SecurityManager{
 	public void checkConnect(String host, int port) {
 		JByteMod.LOGGER.log(String.format("[Security Manager] Blocked a connection to %s:%s", host, port));
 		SneakyThrow.sneakyThrow(new SocketTimeoutException("[SecurityManager] Connection blocked."));
-		
-
 	}
 
 	@Override
@@ -36,7 +34,7 @@ public class CustomSecurityManager extends SecurityManager{
 			return;
 		}
 		if (name.equals("setSecurityManager")) {
-			JByteMod.LOGGER.err("[SecurityManager] Error while setting SecurityManager, JByteMod-Remastered will now exit for your own safety.");
+			JByteMod.LOGGER.err("[SecurityManager] Error while setting SecurityManager, JByteMod will now exit for your own safety.");
 			System.exit(0);
 		}
 	}
